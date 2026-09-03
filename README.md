@@ -43,15 +43,18 @@ npm run dev                  # http://localhost:3000
 ## 資料庫（Turso）
 
 Prisma CLI 不能直接對 `libsql://` 做 migrate。正式資料庫的 schema 靠 `scripts/sync-turso-schema.js`
-比對補齊，`vercel-build` 會自動跑（只有 `VERCEL_ENV=production` 會真的動 Turso）。
+比對補齊。**這支只在本機跑**（放進 Vercel build 會因為 `npx prisma db push` 在該環境快速失敗而中斷）。
 
-改了 `prisma/schema.prisma` 後：
+改了 `prisma/schema.prisma` 後，部署前務必依序：
 
 ```bash
-npx prisma db push                       # 更新本機
+npx prisma db push                            # 更新本機 dev.db
 node scripts/sync-turso-schema.js --dry-run   # 預覽對 Turso 的 SQL
 node scripts/sync-turso-schema.js             # 真的同步（需要 .env 有 Turso 變數）
+git push                                       # 再部署
 ```
+
+漏跑會導致：新 schema 產生的查詢打到缺欄位的正式庫 → 該 model 全部 500。
 
 ## 部署流程
 

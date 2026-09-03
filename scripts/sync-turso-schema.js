@@ -6,10 +6,12 @@
 // 2. 逐表逐欄跟 Turso 現有結構比對，缺表就 CREATE TABLE，缺欄位就 ALTER TABLE ADD COLUMN。
 // 3. 只新增，不刪除、不改型別。遇到「NOT NULL 又沒有預設值」這種 SQLite 沒法簡單 ALTER 的情況直接報錯中止。
 //
-// 用法：
+// 用法（在本機跑，不在 Vercel build 內跑——Vercel 上 `npx prisma db push` 會快速失敗）：
 //   node scripts/sync-turso-schema.js --dry-run   # 只印出計畫要跑的 SQL，不動 Turso
 //   node scripts/sync-turso-schema.js             # 真的同步
-//   Vercel build 內自動跑：見 package.json 的 "vercel-build"，且只有 VERCEL_ENV=production 才會動 Turso。
+//
+// 流程：改了 prisma/schema.prisma -> `npx prisma db push`（更新本機 dev.db）
+//       -> `node scripts/sync-turso-schema.js`（同步到 Turso）-> 再 git push 部署。
 
 const fs = require('fs')
 const path = require('path')
