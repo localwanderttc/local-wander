@@ -1,0 +1,35 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 客戶詢價：前台 /[locale]/inquiry 表單送出後寫進這張表，後台 /admin 管理。
+// status 流程：new -> contacted -> quoted -> confirmed -> closed（closed 含成交與未成交，用 notes 記）
+model Inquiry {
+  id           Int      @id @default(autoincrement())
+  name         String
+  phone        String
+  email        String?
+  lineId       String?
+  serviceType  String   // 對應 site-config.json 的 services[].key，例如 "airport" / "charter" / "daytour"
+  headcount    Int?
+  startDate    String?  // 使用者填的出發日期，保留字串（可能是「6/20-6/22」這種範圍）
+  endDate      String?
+  pickup       String?  // 上車地點
+  dropoff      String?  // 下車地點 / 目的地
+  message      String?  // 客戶備註
+  locale       String   @default("zh") // 送出時的語系，方便後台知道要用哪種語言回覆
+  source       String   @default("web") // 保留欄位：未來若有其他來源（LINE、電話代填）用得到
+  status       String   @default("new")
+  adminNotes   String?  // 內部備註，只在後台可見
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}

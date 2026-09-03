@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --brand: #0f766e; /* teal-700 — TODO：確認品牌主色後調整 */
+  --brand-cta: #f59e0b; /* amber-500 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #1c1917; /* stone-900 */
+  -webkit-font-smoothing: antialiased;
+}

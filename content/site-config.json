@@ -1,0 +1,82 @@
+{
+  "_comment": "網站文字內容集中在這裡，雙語。要改文案改這個檔即可，不需要動程式。TODO 標記處等真實內容確認後替換。",
+  "brand": {
+    "name": { "zh": "在地漫遊包車", "en": "LocalWander" },
+    "tagline": {
+      "zh": "TODO：一句話講清楚你的包車服務（例：專業司機導遊，帶你深入台灣在地）",
+      "en": "TODO: one-line service pitch"
+    }
+  },
+  "contact": {
+    "phone": "TODO",
+    "lineUrl": "TODO",
+    "lineId": "TODO",
+    "email": "localwanderttc@gmail.com",
+    "instagram": "TODO",
+    "address": { "zh": "TODO", "en": "TODO" },
+    "serviceArea": { "zh": "TODO：服務地區（例：全台）", "en": "TODO: service area" }
+  },
+  "hero": {
+    "headline": {
+      "zh": "TODO：首頁大標",
+      "en": "TODO: hero headline"
+    },
+    "sub": {
+      "zh": "TODO：首頁副標，2-3 句說明特色與客群",
+      "en": "TODO: hero subheading"
+    },
+    "ctaLabel": { "zh": "立即詢價", "en": "Get a Quote" }
+  },
+  "services": [
+    {
+      "key": "airport",
+      "title": { "zh": "機場接送", "en": "Airport Transfer" },
+      "desc": { "zh": "TODO：機場接送服務說明", "en": "TODO" }
+    },
+    {
+      "key": "charter",
+      "title": { "zh": "包車旅遊 / 環島", "en": "Private Charter & Island Tour" },
+      "desc": { "zh": "TODO：包車旅遊服務說明", "en": "TODO" }
+    },
+    {
+      "key": "daytour",
+      "title": { "zh": "一日遊包車", "en": "Day Tour" },
+      "desc": { "zh": "TODO：一日遊路線說明", "en": "TODO" }
+    }
+  ],
+  "fleet": [
+    {
+      "key": "sedan",
+      "name": { "zh": "轎車 / 商務車", "en": "Sedan / Business Car" },
+      "seats": 4,
+      "desc": { "zh": "TODO：車型說明", "en": "TODO" },
+      "images": []
+    },
+    {
+      "key": "van9",
+      "name": { "zh": "9 人座廂型車", "en": "9-Seater Van" },
+      "seats": 9,
+      "desc": { "zh": "TODO：車型說明", "en": "TODO" },
+      "images": []
+    },
+    {
+      "key": "coach",
+      "name": { "zh": "中巴 / 遊覽車", "en": "Mini Coach" },
+      "seats": 20,
+      "desc": { "zh": "TODO：車型說明", "en": "TODO" },
+      "images": []
+    }
+  ],
+  "about": {
+    "body": {
+      "zh": "TODO：關於我們段落。公司背景、營業執照 / 靠行、司機資歷、保險等信任訊息。",
+      "en": "TODO: about us copy."
+    }
+  },
+  "faq": [
+    {
+      "q": { "zh": "TODO：常見問題 1", "en": "TODO" },
+      "a": { "zh": "TODO：答案", "en": "TODO" }
+    }
+  ]
+}
