@@ -46,8 +46,18 @@ export default async function AboutPage({
         {dict.about.contactTitle}
       </h2>
       <div className="mt-4 text-sm">
-        <Row label={dict.about.phone} value={c.phone} />
+        <Row
+          label={dict.about.phone}
+          value={
+            c.phone && c.phone !== "TODO"
+              ? c.contactPerson && c.contactPerson !== "TODO"
+                ? `${c.phone}（${c.contactPerson}）`
+                : c.phone
+              : undefined
+          }
+        />
         <Row label={dict.about.line} value={c.lineId || c.lineUrl} />
+        <Row label="WhatsApp" value={c.whatsapp} />
         <Row label={dict.about.email} value={c.email} />
         <Row label={dict.about.instagram} value={c.instagram} />
         <Row label={dict.about.address} value={t(c.address, l)} />

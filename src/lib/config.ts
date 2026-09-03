@@ -10,8 +10,10 @@ export type SiteConfig = {
   brand: { name: LocalizedText; tagline: LocalizedText };
   contact: {
     phone: string;
+    contactPerson: string;
     lineUrl: string;
     lineId: string;
+    whatsapp: string;
     email: string;
     instagram: string;
     address: LocalizedText;

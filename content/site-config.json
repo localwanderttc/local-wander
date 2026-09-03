@@ -1,16 +1,18 @@
 {
   "_comment": "網站文字內容集中在這裡，雙語。要改文案改這個檔即可，不需要動程式。TODO 標記處等真實內容確認後替換。",
   "brand": {
-    "name": { "zh": "在地漫遊包車", "en": "LocalWander" },
+    "name": { "zh": "在地嚮往", "en": "LOCAL WANDER" },
     "tagline": {
       "zh": "TODO：一句話講清楚你的包車服務（例：專業司機導遊，帶你深入台灣在地）",
       "en": "TODO: one-line service pitch"
     }
   },
   "contact": {
-    "phone": "TODO",
+    "phone": "0905556893",
+    "contactPerson": "張立凱",
     "lineUrl": "TODO",
     "lineId": "TODO",
+    "whatsapp": "TODO",
     "email": "localwanderttc@gmail.com",
     "instagram": "TODO",
     "address": { "zh": "TODO", "en": "TODO" },
