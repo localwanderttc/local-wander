@@ -20,9 +20,14 @@ function resolveDatabaseUrl(url: string): string {
   return `file:${absolutePath}`;
 }
 
+const dbUrl = resolveDatabaseUrl(process.env.DATABASE_URL!);
+const isFileUrl = dbUrl.startsWith("file:");
+
+// 只有連 libsql://（Turso）時才帶 authToken。本機 file: + authToken 的組合在 @libsql/client
+// 有已知異常（work-manager 踩過，可能清空本機 dev.db），即使 .env 裡有 token 也不要傳。
 const libsql = createClient({
-  url: resolveDatabaseUrl(process.env.DATABASE_URL!),
-  authToken: process.env.TURSO_AUTH_TOKEN || undefined,
+  url: dbUrl,
+  authToken: isFileUrl ? undefined : process.env.TURSO_AUTH_TOKEN,
 });
 const adapter = new PrismaLibSQL(libsql);
 
